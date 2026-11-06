@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care -Mis Mascotas-</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="navbar">
+        <div class="nav-logo">Pet Care 🐾</div>
+        <div class="nav-links">
+            <span>Hola, Juan (Dueño)</span>
+            <a href="login.html" class="link-salir">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="contenedor-principal">
+        <div class="cabecera-dashboard">
+            <h2>Mis Mascotas</h2>
+            <!-- Este botón lleva a la HU-09 -->
+            <a href="nueva-mascota.html" class="btn-principal" style="width: auto; padding: 10px 20px; text-decoration: none;">+ Añadir nueva mascota</a>
+        </div>
+
+        <!-- Cuadrícula de tarjetas de mascotas -->
+        <div class="grid-mascotas">
+            
+            <!-- Tarjeta Mascota 1 -->
+            <!-- Al hacer clic, lleva al historial (HU-08) -->
+            <a href="historial.html" class="tarjeta-mascota">
+                <div class="icono-mascota">🐶</div>
+                <div class="info-mascota">
+                    <h3>Toby</h3>
+                    <p>Perro - Golden Retriever</p>
+                    <span class="codigo-chip">ID: PET-4592</span>
+                </div>
+            </a>
+
+            <!-- Tarjeta Mascota 2 -->
+            <a href="historial.html" class="tarjeta-mascota">
+                <div class="icono-mascota">🐱</div>
+                <div class="info-mascota">
+                    <h3>Luna</h3>
+                    <p>Gato - Siamés</p>
+                    <span class="codigo-chip">ID: PET-1024</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>

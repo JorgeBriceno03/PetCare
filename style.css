@@ -1,0 +1,184 @@
+/* Reseteo básico para que todos los navegadores se vean igual */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;           /* Ocupa toda la pantalla */
+}
+.pantalla-centrada {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;           /* Ocupa el 100% del alto de la pantalla */
+}
+
+.contenedor-login {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.cabecera h1 {
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.cabecera p {
+    color: #6b7280;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.grupo-input {
+    margin-bottom: 15px;
+}
+
+.grupo-input label {
+    display: block;
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 5px;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+}
+
+.grupo-input input:focus {
+    border-color: #0d9488; /* Color verde marca al hacer clic */
+}
+
+.btn-principal {
+    width: 100%;
+    background-color: #0d9488;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-principal:hover {
+    background-color: #0f766e;
+}
+/* =========================================
+   ESTILOS DEL DASHBOARD Y NAVEGACIÓN
+   ========================================= */
+
+body {
+    /* Sobrescribimos el centrado del login para las páginas internas */
+    display: block; 
+}
+
+.navbar {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0d9488;
+}
+
+.nav-links {
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.link-salir {
+    margin-left: 15px;
+    color: #ef4444; /* Color rojo para salir */
+    text-decoration: none;
+}
+
+.contenedor-principal {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.cabecera-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cabecera-dashboard h2 {
+    color: #1f2937;
+}
+
+/* Sistema de cuadrícula para las tarjetas */
+.grid-mascotas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-mascota {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-mascota:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-color: #0d9488;
+}
+
+.icono-mascota {
+    font-size: 2.5rem;
+    margin-right: 15px;
+}
+
+.info-mascota h3 {
+    margin-bottom: 5px;
+    color: #1f2937;
+}
+
+.info-mascota p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.codigo-chip {
+    font-size: 0.75rem;
+    background-color: #f3f4f6;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #4b5563;
+    font-weight: bold;
+}
