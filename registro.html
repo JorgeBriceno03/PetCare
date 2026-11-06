@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-with, initial-scale=1.0">
+        <title>Pet Care - Registro</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="contenedor-login">
+            <div class="cabecera">
+                <h1>Pet Care 🐾</h1>
+                <p>Crea tu cuenta para empezar</p>
+            </div>
+
+            <form action="#" method="post">
+                <div class="grupo-input">
+                    <label>Nombre o Nombre de la Clínica</label>
+                    <input type="text" placeholder="Ej: Juan Perez o Clinica Vet" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>¿Que tipo de usuario eres?</label>
+                    <select required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px;">
+
+                        <option value="" disabled selected>Selecciona tu perfil...</option>
+                        <option value="dueño">Dueño de Mascota</option>
+                        <option value="veterinario">Veterinario / Centro clínico</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-principal">Registrarse</button>
+            </form>
+            <!--Para volver al login -->
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+                ¿Ya tienes cuenta? <a href="login.html" style="color: #0d9488; text-decoration: none;">Inicia sesión</a>
+            </p>
+        </div>
+    </body>
+</html>
