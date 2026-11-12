@@ -1,50 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-with, initial-scale=1.0">
-        <title>Pet Care - Registro</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="pantalla-centrada">
-        <div class="contenedor-login">
-            <div class="cabecera">
-                <h1>Pet Care 🐾</h1>
-                <p>Crea tu cuenta para empezar</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pantalla-centrada">
+
+    <div class="contenedor-login">
+        <div class="cabecera">
+            <h1>Pet Care 🐾</h1>
+            <p>Crea tu cuenta para empezar</p>
+        </div>
+        
+        <form id="form-registro">
+            
+            <div class="grupo-input">
+                <label>Nombre</label>
+                <input type="text" id="nombreInput" placeholder="Ej: Juan" required>
             </div>
 
-            <form action="#" method="post">
-                <div class="grupo-input">
-                    <label>Nombre o Nombre de la Clínica</label>
-                    <input type="text" placeholder="Ej: Juan Perez o Clinica Vet" required>
-                </div>
+            <div class="grupo-input">
+                <label>Apellidos</label>
+                <input type="text" id="apellidosInput" placeholder="Ej: Pérez" required>
+            </div>
 
-                <div class="grupo-input">
-                    <label>Correo Electrónico</label>
-                    <input type="email" placeholder="tu@email.com" required>
-                </div>
+            <div class="grupo-input">
+                <label>DNI</label>
+                <input type="text" id="dniInput" maxlength="9" placeholder="12345678X" required>
+            </div>
+            
+            <div class="grupo-input">
+                <label>Teléfono (Opcional)</label>
+                <input type="tel" id="telefonoInput" placeholder="600123456">
+            </div>
 
-                <div class="grupo-input">
-                    <label>Contraseña</label>
-                    <input type="password" placeholder="••••••••" required>
-                </div>
+            <div class="grupo-input">
+                <label>Correo Electrónico</label>
+                <input type="email" id="emailInput" placeholder="tu@email.com" required>
+            </div>
 
-                <div class="grupo-input">
-                    <label>¿Que tipo de usuario eres?</label>
-                    <select required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px;">
+            <div class="grupo-input">
+                <label>Contraseña</label>
+                <input type="password" id="passwordInput" placeholder="••••••••" required>
+            </div>
 
-                        <option value="" disabled selected>Selecciona tu perfil...</option>
-                        <option value="dueño">Dueño de Mascota</option>
-                        <option value="veterinario">Veterinario / Centro clínico</option>
-                    </select>
-                </div>
+            <div class="grupo-input">
+                <label>¿Qué tipo de usuario eres?</label>
+                <select id="rolInput" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px;">
+                    <option value="" disabled selected>Selecciona tu perfil...</option>
+                    
+                    <!-- Ponemos los values exactos que espera tu base de datos -->
+                    <option value="USER">Dueño de mascota</option>
+                    <option value="VETERINARIO">Veterinario / Centro clínico</option>
+                </select>
+            </div>
 
-                <button type="submit" class="btn-principal">Registrarse</button>
-            </form>
-            <!--Para volver al login -->
-            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
-                ¿Ya tienes cuenta? <a href="login.html" style="color: #0d9488; text-decoration: none;">Inicia sesión</a>
-            </p>
-        </div>
-    </body>
+            <button type="submit" class="btn-principal">Registrarse</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+            ¿Ya tienes cuenta? <a href="login.html" style="color: #0d9488; font-weight: bold; text-decoration: none;">Inicia sesión</a>
+        </p>
+    </div>
+
+    <!-- Script para enviar los datos al Backend -->
+    <script>
+        const form = document.getElementById('form-registro');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita que la página recargue al pulsar el botón
+
+            // Recogemos todos los valores
+            const datos = {
+                dni: document.getElementById('dniInput').value,
+                nombre: document.getElementById('nombreInput').value,
+                apellidos: document.getElementById('apellidosInput').value,
+                telefono: document.getElementById('telefonoInput').value,
+                email: document.getElementById('emailInput').value,
+                password: document.getElementById('passwordInput').value,
+                rol: document.getElementById('rolInput').value
+            };
+
+            try {
+                // Hacemos la petición a tu servidor local
+                const respuesta = await fetch('http://localhost:3000/api/registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datos)
+                });
+
+                const resultado = await respuesta.json();
+
+                if (respuesta.ok) {
+                    alert('¡Registro exitoso! Ya puedes iniciar sesión.');
+                    window.location.href = 'login.html'; // Te manda al login
+                } else {
+                    alert('Error: ' + resultado.error);
+                }
+            } catch (error) {
+                console.error('Error de conexión:', error);
+                alert('No se pudo conectar con el servidor.');
+            }
+        });
+    </script>
+</body>
 </html>
